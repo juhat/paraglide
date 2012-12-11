@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <% unless current_user %>
+        <%= link_to('log in',user_omniauth_authorize_path(:facebook)) %>
+    <% else %>
+        <%= current_user.email %>
+        <%= link_to "sign out", destroy_user_session_path %>
+    <% end %>
 
-<%= yield %>
+    <%= yield %>
 
 </body>
 </html>
