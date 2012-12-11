@@ -19,12 +19,26 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+group :development do
+  gem "quiet_assets"
+  gem 'guard'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+end
+
 group :development, :test do
   gem 'rspec-rails'
+  gem 'mongoid-rspec' #https://github.com/evansagge/mongoid-rspec
+  #gem 'email_spec'
+  gem 'launchy'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'
-  gem 'database_cleaner', '0.7.0'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
