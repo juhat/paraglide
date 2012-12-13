@@ -1,12 +1,10 @@
 class User
-  include ActiveModel::MassAssignmentSecurity
-  attr_protected :role
-
   include Mongoid::Document
 
   devise :rememberable, :trackable, :omniauthable
 
   field :name,              type: String, :default => ""
+  field :facebook_id,       type: String, :default => ""
   field :role,              type: String, :default => ""
 
   ## Rememberable
@@ -25,7 +23,12 @@ class User
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where( email: auth.info.email ).first
-    user ||= User.create( email: auth.info.email )
+    if user
+      user.update_attributes!( name: auth.extra.raw_info.name, email: auth.info.email, facebook_id: auth.uid )
+    else
+      user = User.create!( name: auth.extra.raw_info.name, email: auth.info.email, facebook_id: auth.uid )
+    end
+    user
   end
 
   def admin?

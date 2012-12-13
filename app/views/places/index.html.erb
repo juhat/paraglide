@@ -1,23 +1,17 @@
-<h1>Listing places</h1>
+<h1><%= t('.paragliding_sites') %></h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<br>
 
 <% @places.each do |place| %>
-  <tr>
-    <td><%= place.name %></td>
-    <td><%= link_to 'Show', place %></td>
-    <td><%= link_to 'Edit', edit_place_path(place) %></td>
-    <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <div class='row-fluid'>
+      <div class='span6'><%= link_to place.name, place %></div>
+      <div class='span2'><%= place.height %></div>
+      <div class='span4'>
+        <%= place.wind_north ? 'O' : '-' %>
+      </div>
+    </div>
 <% end %>
-</table>
 
-<br />
+<br>
 
-<%= link_to 'New Place', new_place_path %>
+<%= link_to t('.new_paragliding_site'), new_place_path, class: 'btn btn-primary' %>

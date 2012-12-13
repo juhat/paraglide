@@ -1,10 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <%= @place.name %>
+</h1>
 
 <p>
-  <b>Name:</b>
-  <%= @place.name %>
+  <b>Latitude:</b>
+  <%= @place.latitude %>
+</p>
+<p>
+  <b>Longitude:</b>
+  <%= @place.longitude %>
+</p>
+<p>
+  <%= @place.wind_east %>
 </p>
 
+<p>
+    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&zoom=12&size=600x300&key=AIzaSyA0iEY2Dsgh_u5dt9i1B49_G0xe-daHsD8" %>
+</p>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', places_path %>

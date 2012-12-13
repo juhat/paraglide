@@ -5,6 +5,11 @@ gem 'rails', '3.2.9'
 gem 'mongoid'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'simple_form'
+gem 'bootstrap-sass'
+gem 'bourbon'
+gem "geocoder"
+
 
 group :assets do
   gem 'sass-rails'
@@ -20,6 +25,7 @@ group :production do
 end
 
 group :development do
+  # https://github.com/RailsApps/rails3-mongoid-devise
   gem "quiet_assets"
   gem 'guard'
   gem 'rb-inotify', :require => false

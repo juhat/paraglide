@@ -1,0 +1,28 @@
+@import "bootstrap";
+@import "bourbon";
+@import "bootstrap-responsive";
+
+body{
+  background: asset-url('nasty_fabric.png', 'image') repeat;
+  padding: 2em 1em;
+
+  .content{
+    background: #fff;
+    padding: 2em;
+  }
+  .user-menu{
+    padding: 1em 0;
+    vertical-align: middle;
+    text-align: right;
+
+    img{
+      margin-right: 1em;
+    }
+
+    .btn{
+      margin-top: .6em;
+    }
+  }
+
+}
+
