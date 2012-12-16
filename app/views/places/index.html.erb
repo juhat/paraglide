@@ -7,9 +7,11 @@
       <div class='span6'><%= link_to place.name, place %></div>
       <div class='span2'><%= place.height %></div>
       <div class='span4'>
-        <%= place.wind_north ? 'O' : '-' %>
+        <%= wind( place ) %>
       </div>
     </div>
+
+    <br>
 <% end %>
 
 <br>
