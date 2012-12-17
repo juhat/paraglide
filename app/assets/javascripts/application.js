@@ -27,8 +27,11 @@
 //= require_tree .
 //= require_self
 
-/*
 $(function() {
+    $('.new-point-field-button').live('click', function(){
+        $('.new-point-field:hidden').first().show();
+    });
+/*
     if (navigator.geolocation && get_current_location)
     {
         navigator.geolocation.getCurrentPosition( function(location)
@@ -37,5 +40,5 @@ $(function() {
             console.log(window.location, location.coords.latitude, location.coords.longitude, $.cookie("latitude"), $.cookie("longitude"));
         });
     }
+ */
 });
-*/

@@ -27,6 +27,7 @@ class PlacesController < ApplicationController
   # GET /places/new.json
   def new
     @place = Place.new
+    3.times{ @place.points.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +38,7 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
+    3.times{ @place.points.build }
   end
 
   # POST /places

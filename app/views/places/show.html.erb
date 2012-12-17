@@ -2,21 +2,14 @@
   <%= @place.name %>
 </h1>
 
-<p>
-  <b>Latitude:</b>
-  <%= @place.latitude %>
-</p>
-<p>
-  <b>Longitude:</b>
-  <%= @place.longitude %>
-</p>
-<p>
-  <%= @place.wind_east %>
-</p>
+<% for point in @place.points %>
+    <div>
+      <%= point.name %>
+      <%= wind(point) %>
+    </div>
+<% end %>
 
-<p>
-    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@place.latitude},#{@place.longitude}&zoom=12&size=600x300&key=AIzaSyA0iEY2Dsgh_u5dt9i1B49_G0xe-daHsD8" %>
-</p>
+<%= debug(@place) %>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Destroy', @place, method: :delete, data: { confirm: 'Are you sure?' } %>

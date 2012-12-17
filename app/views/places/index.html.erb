@@ -5,9 +5,10 @@
 <% @places.each do |place| %>
     <div class='row-fluid'>
       <div class='span6'><%= link_to place.name, place %></div>
-      <div class='span2'><%= place.height %></div>
+      <div class='span2'><%= place.points.reduce(0){|mem, i| (mem + i.height.to_i) / 2 } %></div>
       <div class='span4'>
-        <%= wind( place ) %>
+        <%= #wind( place )
+        %>
       </div>
     </div>
 

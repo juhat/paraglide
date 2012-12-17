@@ -1,21 +1,31 @@
 <%= simple_form_for(@place) do |f| %>
   <div class="field">
     <%= f.input :name %>
-    <%= f.input :height %>
     <%= f.input :description, as: :text %>
 
-    <%= f.input :address %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
+    <h2>Points</h2>
+    <%= f.simple_fields_for :points do |p| %>
+        <div class='point-fields <%= p.object.new_record? ? 'new-point-field' : '' %>'>
+            <%= p.input :name %>
+            <%= p.input :height %>
+            <%= p.input :description, as: :text %>
 
-    <%= f.input :wind_north, as: :boolean %>
-    <%= f.input :wind_north_east, as: :boolean %>
-    <%= f.input :wind_east, as: :boolean %>
-    <%= f.input :wind_east_south, as: :boolean %>
-    <%= f.input :wind_south, as: :boolean %>
-    <%= f.input :wind_south_west, as: :boolean %>
-    <%= f.input :wind_west, as: :boolean %>
-    <%= f.input :wind_west_north, as: :boolean %>
+            <%= p.input :address %>
+            <%= p.input :latitude %>
+            <%= p.input :longitude %>
+
+            <%= p.input :wind_north, as: :boolean %>
+            <%= p.input :wind_north_east, as: :boolean %>
+            <%= p.input :wind_east, as: :boolean %>
+            <%= p.input :wind_east_south, as: :boolean %>
+            <%= p.input :wind_south, as: :boolean %>
+            <%= p.input :wind_south_west, as: :boolean %>
+            <%= p.input :wind_west, as: :boolean %>
+            <%= p.input :wind_west_north, as: :boolean %>
+        </div>
+    <% end %>
+    <%= link_to 'Add new field', 'javascript:', class: 'btn new-point-field-button' %>
+
   </div>
   <div class="form-actions">
     <%= f.submit class:"btn btn-success" %>
