@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def session_path(trash)
+    '/auth/facebook'
+  end
+
   def wind(place)
     content_tag( :table, class: 'wind') do
       content_tag( :tr ) do

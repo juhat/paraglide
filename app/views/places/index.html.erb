@@ -2,18 +2,36 @@
 
 <br>
 
-<% @places.each do |place| %>
-    <div class='row-fluid'>
-      <div class='span6'><%= link_to place.name, place %></div>
-      <div class='span2'><%= place.points.reduce(0){|mem, i| (mem + i.height.to_i) / 2 } %></div>
-      <div class='span4'>
-        <%= #wind( place )
-        %>
-      </div>
-    </div>
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t('.actual') %></th>
+      <th><%= t('.height') %></th>
+      <th><%= t('.wind') %></th>
+      <th><%= t('.actions') %></th>
+    </tr>
+  </thead>
 
-    <br>
+<% @places.each do |place| %>
+    <tr>
+      <td class='span5'>
+        <h2><%= link_to place.name, place %></h2>
+        <br>
+        distance...
+      </td>
+      <td><%= (rand * 10).to_i  %> paraglide right now</td>
+      <td class='span2'><%= place.height %></td>
+      <td class='span3'><%= wind( place ) %></td>
+      <td class='span2'>
+        <%= link_to t('.open'), place, class: 'btn' %>
+        <%= link_to t('.starts'), place, class: 'btn' %>
+        <%= link_to t('.paraglide_number'), place, class: 'btn' %>
+      </td>
+    </tr>
 <% end %>
+
+</table>
 
 <br>
 
