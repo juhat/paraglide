@@ -25,4 +25,8 @@ class Place
   def height
     ( points.reduce(0){|sum, point| sum + point.height }.to_f / points.size ).to_i
   end
+
+  def amount
+    @amount ||= (rand * 10).to_i
+  end
 end

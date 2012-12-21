@@ -22,4 +22,18 @@ module ApplicationHelper
       end
     end
   end
+
+  def paraglide_amount(place)
+    content_tag(:div, class: 'paraglide-amount') do
+      content_tag(:span, t('.paraglide_amount', amount: place.amount) ) +
+      if place.amount > 10
+        image_tag('paraglides_lot.png')
+      elsif place.amount > 3
+        image_tag('paraglides_many.png')
+      elsif place.amount > 0
+        image_tag('paraglides_few.png')
+      end +
+      content_tag(:span, link_to( t('.observation'), place, class: 'btn' ))
+    end
+  end
 end

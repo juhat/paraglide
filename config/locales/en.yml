@@ -5,3 +5,6 @@ en:
   layouts:
     application:
       sign_out: 'Sign out!'
+  places:
+    index:
+      paraglide_amount: "%{amount} pg right now"

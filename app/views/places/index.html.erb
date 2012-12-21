@@ -6,10 +6,9 @@
   <thead>
     <tr>
       <th></th>
+      <th><%= t('.info') %></th>
       <th><%= t('.actual') %></th>
-      <th><%= t('.height') %></th>
       <th><%= t('.wind') %></th>
-      <th><%= t('.actions') %></th>
     </tr>
   </thead>
 
@@ -20,14 +19,16 @@
         <br>
         distance...
       </td>
-      <td><%= (rand * 10).to_i  %> paraglide right now</td>
-      <td class='span2'><%= place.height %></td>
-      <td class='span3'><%= wind( place ) %></td>
-      <td class='span2'>
-        <%= link_to t('.open'), place, class: 'btn' %>
-        <%= link_to t('.starts'), place, class: 'btn' %>
-        <%= link_to t('.paraglide_number'), place, class: 'btn' %>
+      <td>
+        <%= content_tag(:p, content_tag(:span, t('.height')) + raw(place.height), class: '') %>
+        <ul>
+            <% for point in place.points %>
+                <%= content_tag(:li, link_to(point.name, place)) %>
+            <% end %>
+        </ul>
       </td>
+      <td class='span2'><%= paraglide_amount(place) %></td>
+      <td class='span3'><%= wind( place ) %></td>
     </tr>
 <% end %>
 

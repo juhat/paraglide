@@ -28,6 +28,19 @@ body{
   .new-point-field{
     display: none;
   }
+
+  .paraglide-amount{
+    span{
+      display: block;
+    }
+    img{
+      width: 100px;
+    }
+  }
+  span{
+    font-weight: bold;
+    padding-right: 1em;
+  }
 }
 
 table.wind{
